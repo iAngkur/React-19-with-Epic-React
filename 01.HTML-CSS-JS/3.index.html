@@ -1,0 +1,18 @@
+<html lang="en">
+  <body>
+    <script type="module">
+      const rootElement = document.createElement("div");
+      rootElement.id = "root";
+
+      const element = document.createElement("div");
+      element.className = "test-class";
+      element.textContent = "Hello World";
+
+      rootElement.append(element);
+
+      // This time root element is not in the DOM tree,
+      // we need to add it to the DOM tree if we wanna see the "Hello World" output.
+      document.body.prepend(rootElement);
+    </script>
+  </body>
+</html>

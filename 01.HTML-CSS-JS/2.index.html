@@ -1,0 +1,17 @@
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      const rootElement = document.getElementById("root");
+
+      const element = document.createElement("div");
+      element.className = "test-class";
+      element.textContent = "Hello World";
+
+      // If we wanna see the "hello World" text on the screen,
+      // We have add it to an element which is already present
+      // in the DOM tree
+      rootElement.append(element);
+    </script>
+  </body>
+</html>
