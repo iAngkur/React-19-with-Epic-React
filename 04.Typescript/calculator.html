@@ -1,0 +1,57 @@
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" data-language="typescript">
+      const { createRoot } = ReactDOM;
+
+      const rootElement = document.getElementById("root");
+
+      type Operator = "+" | "-" | "*" | "/";
+      type OperationFn = (left: number, right: number) => number;
+
+      const operations: Record<Operator, OperationFn> = {
+        "+": (left: number, right: number): number => left + right,
+        "-": (left: number, right: number): number => left - right,
+        "*": (left: number, right: number): number => left * right,
+        "/": (left: number, right: number): number => left / right,
+      };
+
+      type CalculatorProps = {
+        left: number,
+        operator: Operator,
+        right: number,
+      };
+
+      function Calculator({ left, operator, right }: CalculatorProps) {
+        const result = operations[operator](left, right);
+
+        return (
+          <div>
+            <code>
+              {left} {operator} {right} = <output>{result}</output>
+            </code>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div>
+            <h1>Calculator</h1>
+            <Calculator left={1} operator="+" right={2} />
+            <Calculator left={1} operator="-" right={2} />
+            <Calculator left={1} operator="*" right={2} />
+            <Calculator left={1} operator="/" right={2} />
+          </div>
+        );
+      }
+
+      createRoot(rootElement).render(<App />);
+    </script>
+  </body>
+</html>

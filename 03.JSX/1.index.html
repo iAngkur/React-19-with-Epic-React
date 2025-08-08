@@ -1,0 +1,48 @@
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- 
+        type="text/babel" Tells Babel to process this script. Transforms
+        <div>Hello</div> React.createElement("div", ..., "Hello") 
+    -->
+    <script type="text/babel">
+      const { createRoot } = ReactDOM;
+
+      const rootElement = document.getElementById("root");
+
+      // JSX is automatically compiled to React.createElement() by Babel
+      //   const element = <h1 className="greeting">Hello from JSX! 🚀</h1>;
+
+      /*
+      const children = "Hello World";
+      const className = "container";
+      const props = { children, className };
+
+      const element = <div {...props} />;
+    */
+
+      const element = (
+        <div className="container">
+          <div class="container">
+            <p>Here's Sam's favorite food:</p>
+            <ul class="sams-food">
+              <li>Green Eggs</li>
+              <li>Ham</li>
+            </ul>
+          </div>
+        </div>
+      );
+
+      createRoot(rootElement).render(element);
+    </script>
+
+    <!-- 
+        Adds Babel compiler to the browser. Watches for
+        <script type="text/babel"> and compiles JSX 
+    -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </body>
+</html>

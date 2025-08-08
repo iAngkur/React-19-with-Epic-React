@@ -1,0 +1,59 @@
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      const { createElement } = await import("https://esm.sh/react@18");
+      const { createRoot } = await import("https://esm.sh/react-dom@18/client");
+
+      const rootElement = document.getElementById("root");
+
+      /*
+          const element = createElement("div", {
+            className: "test-class",
+            children: "Hello World!!",
+          });
+       */
+
+      // or,
+      /*
+        const element = createElement(
+          "div",
+          {
+            className: "test-class",
+          },
+          "Hello World!!!"
+        );
+        */
+
+      /*
+        <div class="container">
+          <span>Hello</span><span>World</span>
+          </div>
+      */
+
+      /*
+      const element = createElement(
+        "div",
+        {
+          className: "container",
+        },
+        createElement("span", null, "Hello"),
+        " ",
+        createElement("span", null, "World")
+      );
+      */
+      // or,
+      /*
+      const element = createElement("div", {
+        className: "container",
+        children: [
+          createElement("span", null, "Hello"),
+          createElement("span", null, "World"),
+        ],
+      });
+      */
+
+      createRoot(rootElement).render(element);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script type="text/babel">
+      const { createRoot } = ReactDOM;
+
+      const rootElement = document.getElementById("root");
+
+      /*
+      const element = (
+        <div className="container">
+          <div className="message">Hello World</div>
+          <div className="message">Goodbye World</div>
+        </div>
+      );
+      */
+
+      /*
+      function message({ children }) {
+        return <div className="message">{children}</div>;
+      }
+      */
+
+      function Message({ children }) {
+        return <div className="message">{children}</div>;
+      }
+
+      const element = (
+        <div className="container">
+          {/* message({ children: "Hello World" }) */}
+          {/* message({ children: "Goodbye World" }) */}
+
+          {/* React.createElement(message, null, "Hello World") */}
+          {/* React.createElement(message, { children: "Goodbye World" }) */}
+
+          <Message>Hello World</Message>
+          <Message>Goodbye World</Message>
+        </div>
+      );
+
+      createRoot(rootElement).render(element);
+    </script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </body>
+</html>
